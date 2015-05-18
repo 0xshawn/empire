@@ -1,8 +1,14 @@
+<script type="text/ng-template" id="myPopoverTemplate.html">
+  <div>{{filePopover.content}}</div>
+  <div class="form-group">
+    <label>Popup Title:</label>
+    <input type="text" ng-model="dynamicPopover.title" class="form-control">
+  </div>
+</script>
 <div class="container">
   <div class="tasks">
     <h1>Task</h1>
-    <div ui-view></div>
-    <caption>Servers</caption>
+
     <table class="table table-hover">
       <thead>
         <tr>
@@ -18,11 +24,12 @@
           <th>{{task.target}}</th>
           <th>{{task.description}}</th>
           <th>{{task.launchDate}}</th>
-          <th>{{task.file}}</th>
+          <th><button type="button" class="btn btn-default" ng-click='toggleFileContent(task)'>Show</button></th>
           <th>{{task.finished}}</th>
           <th>{{task.result}}</th>
         </tr>
       </tbody>
     </table>
+    <pre ng-if="showFileContent">{{fileContent}}</pre>
   </div>
 </div>

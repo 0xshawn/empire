@@ -11,7 +11,7 @@ angular.module('nodeApp')
       .state('task.list', {
         url: '/list',
         templateUrl: 'app/task/task.list.html',
-        controller: 'NewTaskCtrl'
+        controller: 'ListTaskCtrl'
       })
       .state('task.new', {
         url: '/new',
