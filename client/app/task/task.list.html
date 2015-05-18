@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="tasks">
+    <h1>Task</h1>
+    <div ui-view></div>
+    <caption>Servers</caption>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Target</th>
+          <th>Description</th>
+          <th>Launch Date</th>
+          <th>File Content</th>
+          <th>result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="task in tasks">
+          <th>{{task.target}}</th>
+          <th>{{task.description}}</th>
+          <th>{{task.launchDate}}</th>
+          <th>{{task.file}}</th>
+          <th>{{task.finished}}</th>
+          <th>{{task.result}}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

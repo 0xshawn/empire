@@ -11,9 +11,8 @@ var NICSchema = new Schema({
 
 var ServerSchema = new Schema({
   hostname: String,
-  desciption: String,
-  nic: [NICSchema],
-  disk: [DiskSchema]
+  description: String,
+  nic: [NICSchema]
 });
 
 module.exports = mongoose.model('Server', ServerSchema);
