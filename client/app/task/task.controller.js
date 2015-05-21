@@ -34,16 +34,18 @@ angular.module('nodeApp')
       $state.go('task.show', {id: task._id});
     };
 
+    var buttonClass = function(click) {
+      if (click) {
+        return "btn btn-primary";
+      } else {
+        return "btn btn-default";
+      }
+    };
+
     $scope.showFileContent = false;
     $scope.toggleFileContent = function(task) {
       $scope.showFileContent = !$scope.showFileContent;
       $scope.fileContent = task.file;
-    };
-
-    $scope.showResultContent = false;
-    $scope.toggleResultContent = function(task) {
-      $scope.showResultContent = !$scope.showResultContent;
-      $scope.resultContent = task.result;
     };
 
     $scope.refresh();

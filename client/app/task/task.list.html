@@ -32,13 +32,17 @@
           <th>{{task.launchDate}}</th>
           <th><button type="button" class="btn btn-default" ng-click='toggleFileContent(task)'>Show</button></th>
           <th>{{task.finished}}</th>
-          <th><button type="button" class="btn btn-default" ng-click='toggleResultContent(task)'>Show</button></th>
+          <th><button type="button" class="btn btn-default" ng-click='toggleFileContent(task)'>Show</button></th>
           <th><button class="btn btn-primary btn-xs" ng-click='runAgain()'><span class="glyphicon glyphicon-repeat"></span></button></th>
           <th><button class="btn btn-danger btn-xs" ng-click='deleteTask(task)'><span class="glyphicon glyphicon-remove"></span></button></th>
         </tr>
       </tbody>
     </table>
-    <pre ng-if="showFileContent">{{fileContent}}</pre>
-    <pre ng-if="showResultContent">{{resultContent}}</pre>
+    <div ng-if="showFileContent">
+      <label>File:</label>
+      <pre>{{fileContent}}</pre>
+      <label>Result:</label>
+      <pre ng-if="showFileContent">{{resultContent}}</pre>
+    </div>
   </div>
 </div>
