@@ -9,7 +9,7 @@ angular.module('nodeApp')
       newTask.$save(function(response) {
         console.log(response);
         if (response != null) {
-          $state.go('task.show');
+          $state.go('task.show', {id: response._id});
           console.log("save success");
         } else {
           console.log("fails");
