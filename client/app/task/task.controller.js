@@ -46,6 +46,7 @@ angular.module('nodeApp')
     $scope.toggleFileContent = function(task) {
       $scope.showFileContent = !$scope.showFileContent;
       $scope.fileContent = task.file;
+      $scope.resultContent = task.result;
     };
 
     $scope.refresh();

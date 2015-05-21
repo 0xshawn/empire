@@ -11,6 +11,7 @@
     <h1>
       Task
       <button class="btn btn-primary" ng-click="newTask()"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>New</button>
+      <button class="btn btn-primary" ng-click="refresh()"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Refresh</button>
     </h1>
     <table class="table table-hover">
       <thead>
@@ -42,7 +43,7 @@
       <label>File:</label>
       <pre>{{fileContent}}</pre>
       <label>Result:</label>
-      <pre ng-if="showFileContent">{{resultContent}}</pre>
+      <pre>{{resultContent}}</pre>
     </div>
   </div>
 </div>
