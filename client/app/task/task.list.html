@@ -27,7 +27,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="task in tasks">
-          <th>{{task.target}}</th>
+          <th><a ng-click="show(task)">{{task.target || "null"}}</a></th>
           <th>{{task.description}}</th>
           <th>{{task.launchDate}}</th>
           <th><button type="button" class="btn btn-default" ng-click='toggleFileContent(task)'>Show</button></th>

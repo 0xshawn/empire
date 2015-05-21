@@ -30,6 +30,10 @@ angular.module('nodeApp')
       $scope.refresh();
     };
 
+    $scope.show = function(task) {
+      $state.go('task.show', {id: task._id});
+    };
+
     $scope.showFileContent = false;
     $scope.toggleFileContent = function(task) {
       $scope.showFileContent = !$scope.showFileContent;
