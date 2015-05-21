@@ -1,7 +1,8 @@
 <div class="container">
   <h1>Task Show Page</h1>
 
-  <span class="glyphicon glyphicon-check" aria-hidden="true"> Done?: {{task.finished}}</span>
+  <button class="btn btn-primary" ng-click="edit(task)"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Edit</button>
+  <span class="glyphicon glyphicon-check" aria-hidden="true">Done?: {{task.finished}}</span>
   <hr>
   <label>Target</label>
   <div class="alert alert-info" role="alert">

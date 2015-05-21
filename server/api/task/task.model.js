@@ -8,8 +8,8 @@ var TaskSchema = new Schema({
   description: String,
   launchDate: Date,
   file: String,
-  finished: Boolean,
-  result: String
+  finished: {type: Boolean, default: false},
+  result: {type: String, default: ""}
 });
 
 module.exports = mongoose.model('Task', TaskSchema);

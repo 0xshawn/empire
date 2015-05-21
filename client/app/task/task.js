@@ -19,8 +19,13 @@ angular.module('nodeApp')
         controller: 'NewTaskCtrl'
       })
       .state('task.show', {
-        url: '/show',
+        url: '/show/:id',
         templateUrl: 'app/task/task.show.html',
         controller: 'ShowTaskCtrl'
+      })
+      .state('task.edit', {
+        url: '/edit/:id',
+        templateUrl: 'app/task/task.edit.html',
+        controller: 'EditTaskCtrl'
       });
   });

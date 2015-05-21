@@ -10,7 +10,7 @@ angular.module('nodeApp')
       'link': '/server'
     }, {
       'title': 'Tasks',
-      'link': '/task'
+      'link': '/task/list'
     }];
 
     $scope.isCollapsed = true;
