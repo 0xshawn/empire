@@ -1,10 +1,17 @@
 'use strict';
 
 angular.module('nodeApp')
-  .controller('ServerCtrl', function ($scope, $http) {
+  .controller('ServerCtrl', function ($scope, $http, Server) {
     $scope.awesomeThings = [];
 
-    $http.get('/api/servers').success(function(servers) {
-      $scope.servers = servers;
-    });
+    $scope.refresh = function() {
+      $scope.servers = Server.query();
+    };
+
+    $scope.deleteServer = function(server) {
+      server.$delete();
+      $scope.refresh();
+    };
+
+    $scope.refresh();
   });

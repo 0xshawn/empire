@@ -3,7 +3,7 @@
 angular.module('nodeApp')
   .controller('TaskCtrl', function($state, $scope, $http, Task) {
   })
-  .controller('NewTaskCtrl', function($state, $scope, $http, Task) {
+  .controller('NewTaskCtrl', function($state, $scope, $http, Task, Server) {
     $scope.newTask = function(task) {
       var newTask = new Task($scope.task);
       newTask.$save(function(response) {
@@ -16,6 +16,18 @@ angular.module('nodeApp')
         };
       });
     };
+
+    $scope.refresh_hostnames = function() {
+      Server.query(function(servers) {
+        var hostnames = [];
+        for(var i = 0; i < servers.length; i++){
+          hostnames.push(servers[i]['hostname']);
+        }
+        $scope.hostnames = hostnames;
+      });
+    };
+
+    $scope.refresh_hostnames();
   })
   .controller('ListTaskCtrl', function($state, $scope, $http, Task) {
     $scope.refresh = function() {
