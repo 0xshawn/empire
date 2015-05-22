@@ -1,33 +1,4 @@
 <div class="container">
-  <h1>Edit</h1>
-  <form novalidate class="simple-form">
-    <div class="form-group">
-      <label>Target</label>
-      <input type="text" class="form-control floating-label" placeholder="Task target" ng-model="task.target">
-    </div>
-
-    <div class="form-group">
-      <label>Description</label>
-      <input type="text" class="form-control floating-label" placeholder="Description" ng-model="task.description">
-    </div>
-
-    <div class="form-group">
-      <label>Launch Date</label>
-      <input type="datetime-local" class="form-control floating-label" value="" ng-model="task.launchDate">
-    </div>
-
-    <div class="form-group">
-      <label>File content</label>
-      <textarea class="form-control" rows="5" ng-model="task.file" placeholder="Script content here."></textarea>
-    </div>
-
-
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" ng-model="task.finished">Finished or not?
-      </label>
-    </div>
-
-    <button type="submit" class="btn btn-default" ng-click="update(task)">Submit</button>
-  </form>
+  <h3>Edit</h3>
+  <div ng-include src="'app/task/_edit.html'"></div>
 </div>

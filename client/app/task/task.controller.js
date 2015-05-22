@@ -1,22 +1,7 @@
 'use strict';
 
 angular.module('nodeApp')
-  .controller('TaskCtrl', function($state, $scope, $http, Task) {
-  })
-  .controller('NewTaskCtrl', function($state, $scope, $http, Task, Server) {
-    $scope.newTask = function(task) {
-      var newTask = new Task($scope.task);
-      newTask.$save(function(response) {
-        console.log(response);
-        if (response != null) {
-          $state.go('task.show', {id: response._id});
-          console.log("save success");
-        } else {
-          console.log("fails");
-        };
-      });
-    };
-
+  .controller('TaskCtrl', function($state, $scope, $http, Server) {
     $scope.refresh_hostnames = function() {
       Server.query(function(servers) {
         var hostnames = [];
@@ -28,6 +13,20 @@ angular.module('nodeApp')
     };
 
     $scope.refresh_hostnames();
+  })
+  .controller('NewTaskCtrl', function($state, $scope, $http, Task, Server) {
+    $scope.submit = function(task) {
+      var newTask = new Task($scope.task);
+      newTask.$save(function(response) {
+        console.log(response);
+        if (response != null) {
+          $state.go('task.show', {id: response._id});
+          console.log("save success");
+        } else {
+          console.log("fails");
+        };
+      });
+    };
   })
   .controller('ListTaskCtrl', function($state, $scope, $http, Task) {
     $scope.refresh = function() {
@@ -73,7 +72,7 @@ angular.module('nodeApp')
   .controller('EditTaskCtrl', function($state, $scope, $http, $stateParams, Task) {
     $scope.task = Task.get({id: $stateParams.id});
 
-    $scope.update = function(task) {
+    $scope.submit = function(task) {
       task.$update();
       $state.go('task.show', {id: task._id});
     };
