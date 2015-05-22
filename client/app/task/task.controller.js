@@ -29,10 +29,6 @@ angular.module('nodeApp')
     };
   })
   .controller('ListTaskCtrl', function($state, $scope, $http, Task) {
-    $scope.refresh = function() {
-      $scope.tasks = Task.query();
-    };
-
     $scope.newTask = function() {
       $state.go('task.new');
     };
@@ -46,20 +42,22 @@ angular.module('nodeApp')
       $state.go('task.show', {id: task._id});
     };
 
-    var buttonClass = function(click) {
-      if (click) {
-        return "btn btn-primary";
-      } else {
-        return "btn btn-default";
-      }
+    $scope.toggleData = {};
+
+    $scope.refresh = function() {
+      $scope.tasks = Task.query(function(tasks) {
+        for(var i = 0; i < tasks.length; i++) {
+          $scope.toggleData[tasks[i]['_id']] = true;
+        }
+      });
     };
 
-    $scope.showFileContent = false;
-    $scope.toggleFileContent = function(task) {
-      $scope.refresh();
-      $scope.showFileContent = !$scope.showFileContent;
-      $scope.fileContent = task.file;
-      $scope.resultContent = task.result;
+    $scope.toggle = function(task) {
+      $scope.toggleData[task._id] = !$scope.toggleData[task._id];
+    };
+
+    $scope.toggleCollapse = function(task) {
+      return $scope.toggleData[task._id];
     };
 
     $scope.refresh();
