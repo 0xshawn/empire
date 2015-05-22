@@ -32,6 +32,7 @@ angular.module('nodeApp')
     $scope.refresh = function() {
       $scope.tasks = Task.query();
     };
+
     $scope.newTask = function() {
       $state.go('task.new');
     };
@@ -55,6 +56,7 @@ angular.module('nodeApp')
 
     $scope.showFileContent = false;
     $scope.toggleFileContent = function(task) {
+      $scope.refresh();
       $scope.showFileContent = !$scope.showFileContent;
       $scope.fileContent = task.file;
       $scope.resultContent = task.result;
