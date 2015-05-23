@@ -18,7 +18,6 @@ angular.module('nodeApp')
     $scope.submit = function(task) {
       var newTask = new Task($scope.task);
       newTask.$save(function(response) {
-        console.log(response);
         if (response != null) {
           $state.go('task.show', {id: response._id});
           console.log("save success");
@@ -64,14 +63,12 @@ angular.module('nodeApp')
   })
   .controller('ShowTaskCtrl', function($state, $scope, $http, $stateParams, Task) {
     $scope.task = Task.get({id: $stateParams.id});
-
     $scope.edit = function(task) {
       $state.go('task.edit', {id: task._id});
     };
   })
   .controller('EditTaskCtrl', function($state, $scope, $http, $stateParams, Task) {
     $scope.task = Task.get({id: $stateParams.id});
-
     $scope.submit = function(task) {
       task.$update();
       $state.go('task.show', {id: task._id});

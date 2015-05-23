@@ -43,7 +43,7 @@ exports.update = function(req, res) {
   Task.findById(req.params.id, function (err, task) {
     if (err) { return handleError(res, err); }
     if(!task) { return res.send(404); }
-    var updated = _.merge(task, req.body);
+    var updated = _.extend(task, req.body);
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
       return res.json(200, task);

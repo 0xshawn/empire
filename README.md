@@ -2,4 +2,4 @@
 Empire System Center
 
 # TODO
-- use Restful Resource in angular.
+- bootstrap Collapse smooth, may be related to angular-animate
