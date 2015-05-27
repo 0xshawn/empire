@@ -1,0 +1,52 @@
+<script type="text/ng-template" id="myPopoverTemplate.html">
+  <div>{{filePopover.content}}</div>
+  <div class="form-group">
+    <label>Popup Title:</label>
+    <input type="text" ng-model="dynamicPopover.title" class="form-control">
+  </div>
+</script>
+
+<div class="container">
+  <div class="tasks">
+    <h1>
+      Task
+      <button class="btn btn-primary" ng-click="newTask()"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> New</button>
+      <button class="btn btn-primary" ng-click="refresh()"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Refresh</button>
+    </h1>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Target</th>
+          <th>Description</th>
+          <th>Launch Date (UTC)</th>
+          <th>File Content</th>
+          <th>Finished?</th>
+          <th>Result</th>
+          <th>Run again</th>
+          <th><font color="red">delete</font></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-repeat-start='task'>
+          <tr ng-repeat-start="task in tasks">
+            <th><a ng-click="show(task)">{{task.target || "null"}}</a></th>
+            <th>{{task.description}}</th>
+            <th>{{task.launchDate}}</th>
+            <th><button type="button" class="btn btn-default" ng-click='toggle(task)'>Show</button></th>
+            <th>{{task.finished}}</th>
+            <th><button type="button" class="btn btn-default" ng-click='toggle(task)'>Show</button></th>
+            <th><button class="btn btn-primary btn-xs" ng-click='runAgain()'><span class="glyphicon glyphicon-repeat"></span></button></th>
+            <th><button class="btn btn-danger btn-xs" ng-click='deleteTask(task)'><span class="glyphicon glyphicon-remove"></span></button></th>
+          </tr>
+          <tr ng-repeat-end collapse="toggleCollapse(task)">
+            <td colspan="8">
+              <label>File:</label>
+              <pre>{{task.file}}</pre>
+              <label>Result:</label>
+              <pre>{{task.result}}</pre>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

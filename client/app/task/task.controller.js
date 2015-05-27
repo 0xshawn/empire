@@ -49,6 +49,8 @@ angular.module('nodeApp')
           $scope.toggleData[tasks[i]['_id']] = true;
         }
       });
+
+      console.log($scope.tasks);
     };
 
     $scope.toggle = function(task) {

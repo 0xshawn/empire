@@ -11,6 +11,9 @@ angular.module('nodeApp')
     }, {
       'title': 'Tasks',
       'link': '/task/list'
+    }, {
+      'title': 'Tags',
+      'link': '/tag'
     }];
 
     $scope.isCollapsed = true;
