@@ -6,7 +6,8 @@ angular.module('nodeApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
-  'ngTagsInput'
+  'ngTagsInput',
+  'isteven-multi-select'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
