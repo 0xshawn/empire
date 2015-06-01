@@ -16,7 +16,7 @@
       <tbody>
         <tr ng-repeat="e in appsflyers">
           <th>{{appId(e)}}</th>
-          <th>{{e.eventName}}</th>
+          <th>{{eventName(e)}}</th>
           <th>{{e.createdAt | date:'yyyy-MM-dd HH:mm:ss'}} UTC</th>
         </tr>
       </tbody>
