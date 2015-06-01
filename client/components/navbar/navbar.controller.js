@@ -3,6 +3,7 @@
 angular.module('nodeApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
+      /*
       'title': 'Home',
       'link': '/'
     }, {
@@ -14,6 +15,9 @@ angular.module('nodeApp')
     }, {
       'title': 'Tags',
       'link': '/tag'
+    }, {*/
+      'title': 'AppsFlyer',
+      'link': '/appsflyer'
     }];
 
     $scope.isCollapsed = true;
