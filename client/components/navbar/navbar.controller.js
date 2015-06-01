@@ -14,6 +14,9 @@ angular.module('nodeApp')
     }, {
       'title': 'Tags',
       'link': '/tag'
+    }, {
+      'title': 'AppsFlyer',
+      'link': '/appsflyer'
     }];
 
     $scope.isCollapsed = true;
