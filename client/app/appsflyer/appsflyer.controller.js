@@ -13,6 +13,14 @@ angular.module('nodeApp')
       var json = angular.fromJson(event.content);
       return json['app_id'];
     };
+    $scope.eventName = function(event) {
+      var json = angular.fromJson(event.content);
+      if (event.eventName == 'purchase') {
+        return 'purchase ' + json['event_value'];
+      } else {
+        return event.eventName;
+      }
+    };
 
     $scope.deleteAll = function() {
       for(var i = 0; i < $scope.appsflyers.length; i++) {
