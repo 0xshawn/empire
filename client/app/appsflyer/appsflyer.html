@@ -3,8 +3,8 @@
 <div class="container">
   <div class="appsflyer">
     <h3>Appsflyer Push API</h3>
-    <button ng-click="refresh()">Refresh</button>
-    <button ng-click="deleteAll()">Drop all</button>
+    <button class="btn btn-button btn-primary" ng-click="refresh()">Refresh</button>
+    <button class="btn btn-button btn-danger" ng-click="deleteAll()">Drop all</button>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -21,5 +21,9 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="alert alert-info" role="alert">
+    <p>* 建议：每次测试前请点击 <a href="#" class="alert-link">Drop all</a>。</p>
   </div>
 </div>
