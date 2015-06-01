@@ -5,6 +5,15 @@ angular.module('nodeApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
+    }, {
+      'title': 'Servers',
+      'link': '/server'
+    }, {
+      'title': 'Tasks',
+      'link': '/task/list'
+    }, {
+      'title': 'Tags',
+      'link': '/tag'
     }];
 
     $scope.isCollapsed = true;

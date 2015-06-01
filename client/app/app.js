@@ -4,7 +4,10 @@ angular.module('nodeApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ui.router'
+  'ui.router',
+  'ui.bootstrap',
+  'ngTagsInput',
+  'isteven-multi-select'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

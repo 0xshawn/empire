@@ -1,0 +1,25 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div class="servers">
+    <caption>Servers</caption>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Hostname</th>
+          <th>Description</th>
+          <th>Private IP</th>
+          <th><font color="red">delete</font></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="s in servers">
+          <th>{{s.hostname}}</th>
+          <th>{{s.description}}</th>
+          <th>{{s[0].privateIp}}</th>
+          <th><button class="btn btn-danger btn-xs" ng-click='deleteServer(s)'><span class="glyphicon glyphicon-remove"></span></button></th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

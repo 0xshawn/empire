@@ -1,0 +1,40 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div class="tags">
+    <h1>
+      Tags
+      <button class="btn btn-primary btn-xs" ng-click="open('lg')">New</button>
+    </h1>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Tag name</th>
+          <th>Description</th>
+          <th>Servers</th>
+          <th><font color="red">delete</font></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="tag in tags">
+          <th>{{tag.description}}</th>
+          <th>{{tag.description}}</th>
+          <th>{{tag.servers}}</th>
+          <th><button class="btn btn-danger btn-xs" ng-click='deleteTag(tag)'><span class="glyphicon glyphicon-remove"></span></button></th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div
+    isteven-multi-select
+    input-model="modernBrowsers"
+    output-model="outputBrowsers"
+    button-label="name"
+    item-label="name maker"
+    tick-property="ticked"
+    max-labels="1"
+    >
+  </div>
+</div>
