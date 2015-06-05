@@ -5,7 +5,7 @@
     <h3>Appsflyer Push API</h3>
     <button class="btn btn-button btn-primary" ng-click="refresh()">Refresh</button>
     <button class="btn btn-button btn-danger" ng-click="deleteAll()">Drop all</button>
-    <table class="table table-hover">
+    <table class="table">
       <thead>
         <tr>
           <th>App id</th>
@@ -14,10 +14,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="e in appsflyers">
-          <th>{{appId(e)}}</th>
+        <tr ng-repeat-start="e in appsflyers">
+          <th><a ng-click="toggle(e)">{{appId(e)}}</a></th>
           <th>{{eventName(e)}}</th>
           <th>{{e.createdAt | date:'yyyy-MM-dd HH:mm:ss'}} UTC</th>
+        </tr>
+        <tr ng-repeat-end collapse="toggleCollapse(e)">
+          <td colspan="8">
+            <label>Details</label>
+            <pre>{{jsonFormat(e) | json}}</pre>
+          </td>
         </tr>
       </tbody>
     </table>

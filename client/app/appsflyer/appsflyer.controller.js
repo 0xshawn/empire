@@ -2,9 +2,23 @@
 
 angular.module('nodeApp')
   .controller('AppsflyerCtrl', function ($scope, $http, Appsflyer) {
+    $scope.toggleData = {};
+
     $scope.refresh = function() {
-      $scope.appsflyers = Appsflyer.query();
+      $scope.appsflyers = Appsflyer.query(function(appsflyers) {
+        for(var i = 0; i < appsflyers.length; i++) {
+          $scope.toggleData[appsflyers[i]['_id']] = true;
+        }
+      });
       console.log($scope.appsflyer);
+    };
+
+    $scope.toggle = function(event) {
+      $scope.toggleData[event._id] = !$scope.toggleData[event._id];
+    };
+
+    $scope.toggleCollapse = function(event) {
+      return $scope.toggleData[event._id];
     };
 
     $scope.refresh();
@@ -27,5 +41,9 @@ angular.module('nodeApp')
         $scope.appsflyers[i].$delete();
       }
       $scope.refresh();
+    };
+
+    $scope.jsonFormat = function(event) {
+      return angular.fromJson(event.content);
     };
   });
