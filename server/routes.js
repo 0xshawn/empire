@@ -15,7 +15,7 @@ module.exports = function(app) {
   app.use('/api/tasks', require('./api/task'));
   app.use('/api/tags', require('./api/tag'));
   app.use('/api/appsflyer', require('./api/appsflyer'));
-  
+  app.use('/api/upload', require('./api/upload'));
 
   app.use('/auth', require('./auth'));
 
