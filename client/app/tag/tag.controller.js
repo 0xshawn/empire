@@ -42,11 +42,8 @@ angular.module('nodeApp')
         console.log('canceled');
       });
     };
-
-    $scope.xx = 'this is double x';
   })
   .controller('NewTagCtrl', function($scope, Tag, $modalInstance, servers) {
-    $scope.x = 'this is x';
     $scope.servers = servers;
     $scope.selected_servers = [];
     $scope.submit = function (tag) {
