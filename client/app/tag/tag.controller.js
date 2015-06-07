@@ -7,11 +7,26 @@ angular.module('nodeApp')
     $scope.deleteTag = function(tag) {
       tag.$delete();
       $scope.refresh();
+
     };
 
     $scope.refresh = function() {
-      $scope.tasks = Tag.query();
+      $scope.tags = Tag.query();
+      /*
+      console.log($scope.tags);
+      for(var i = 0; i < $scope.tags.length; i++) {
+        $scope.tags[i].serverNames = ['s'];
+        for(var j = 0; j < $scope.servers.length; j++) {
+          console.log($scope.servers[j]._id);
+          if($scope.servers[j]._id == $scope.tags[i]) {
+            console.log($scope.servers[j].hostname);
+            $scope.tags[i].serverNames.push($scope.servers[j].hostname);
+          }
+        }
+      }*/
     };
+
+
 
     $scope.refresh();
 
@@ -47,10 +62,10 @@ angular.module('nodeApp')
     $scope.servers = servers;
     $scope.selected_servers = [];
     $scope.submit = function (tag) {
+      $scope.tag['servers'] = [];
       $scope.selected_servers.forEach(function(s) {
         $scope.tag.servers.push(s._id);
       });
-      console.log($scope.tag);
       var newTag = new Tag($scope.tag);
       newTag.$save();
       $modalInstance.close(newTag);
@@ -58,12 +73,5 @@ angular.module('nodeApp')
 
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
-    };
-
-    $scope.show = function(tag) {
-      console.log(tag);
-      console.log($scope.x);
-      console.log($scope.xx);
-      console.log($scope.selected_servers);
     };
   });
