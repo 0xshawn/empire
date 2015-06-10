@@ -2,28 +2,31 @@
 
 angular.module('nodeApp')
   .controller('TagCtrl', function($state, $scope, $http, Tag, $modal, $log, Server) {
+    var map = {};
+    $scope.servers = Server.query(function(servers) {
+      for(var i = 0; i < servers.length; i++) {
+        map[servers[i]._id] = servers[i].hostname;
+      }
+    });
+
     $scope.tags = Tag.query();
+
+    $scope.get_hostname = function(tag) {
+      var length = tag.servers.length;
+      var hostnames = [];
+      for(var i = 0; i < length; i++) {
+        hostnames.push(map[tag.servers[i]]);
+      }
+      return hostnames;
+    };
 
     $scope.deleteTag = function(tag) {
       tag.$delete();
       $scope.refresh();
-
     };
 
     $scope.refresh = function() {
       $scope.tags = Tag.query();
-      /*
-      console.log($scope.tags);
-      for(var i = 0; i < $scope.tags.length; i++) {
-        $scope.tags[i].serverNames = ['s'];
-        for(var j = 0; j < $scope.servers.length; j++) {
-          console.log($scope.servers[j]._id);
-          if($scope.servers[j]._id == $scope.tags[i]) {
-            console.log($scope.servers[j].hostname);
-            $scope.tags[i].serverNames.push($scope.servers[j].hostname);
-          }
-        }
-      }*/
     };
 
 
@@ -51,8 +54,8 @@ angular.module('nodeApp')
       });
 
       modalInstance.result.then(function (tag) {
-        $
         console.log('create new tag: ' + tag.name);
+        $scope.refresh();
       }, function () {
         console.log('canceled');
       });
