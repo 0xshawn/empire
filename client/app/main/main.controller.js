@@ -1,22 +1,26 @@
 'use strict';
 
 angular.module('nodeApp')
-  .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
+  .controller('MainCtrl', function($scope, $http) {
+    $scope.oneAtATime = true;
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
+    $scope.groups = [{
+      title: 'Dynamic Group Header - 1',
+      content: 'Dynamic Group Body - 1'
+    }, {
+      title: 'Dynamic Group Header - 2',
+      content: 'Dynamic Group Body - 2'
+    }];
 
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
-      }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
+    $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+
+    $scope.addItem = function() {
+      var newItemNo = $scope.items.length + 1;
+      $scope.items.push('Item ' + newItemNo);
     };
 
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
+    $scope.status = {
+      isFirstOpen: true,
+      isFirstDisabled: false
     };
   });
