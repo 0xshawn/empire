@@ -9,7 +9,7 @@ var TaskSchema = new Schema({
   launchDate: Date,
   file: {type: String, default: ""},
   finished: {type: Boolean, default: false},
-  frequency: {type: String, default: ""};
+  frequency: {type: String, default: ""},
   result: {type: String, default: ""},
   tags: [new Schema({
     text: String

@@ -16,7 +16,7 @@ angular.module('nodeApp')
   })
   .controller('NewTaskCtrl', function($state, $scope, $http, Task, Server) {
     $scope.submit = function(task) {
-      var newTask = new Task($scope.task);
+      var newTask = new Task(task);
       newTask.$save(function(response) {
         if (response != null) {
           $state.go('task.show', {id: response._id});

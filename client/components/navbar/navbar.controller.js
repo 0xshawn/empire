@@ -12,9 +12,6 @@ angular.module('nodeApp')
       'title': 'Tasks',
       'link': '/task/list'
     }, {
-      'title': 'Tags',
-      'link': '/tag'
-    }, {
       'title': 'AppsFlyer',
       'link': '/appsflyer'
     }];
