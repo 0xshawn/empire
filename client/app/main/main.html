@@ -1,7 +1,9 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
-<div class="row">
-    <div class="col-md-2">
-        <div class="left-sidebar">
+<div class="container-fluid">
+    <div ng-include="'components/navbar/navbar.html'"></div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 sidebar">
             <accordion close-others="oneAtATime">
                 <accordion-group heading="Dashboard" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
                     <a href="#" class="list-group-item active">Reports</a>
@@ -19,30 +21,8 @@
                 </accordion-group>
             </accordion>
         </div>
-    </div>
-    <div class="col-md-10">
-        <h1 class="page-header">Dashboard</h1>
-        <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-                <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-                <h4>Label</h4>
-                <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-                <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-                <h4>Label</h4>
-                <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-                <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-                <h4>Label</h4>
-                <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-                <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-                <h4>Label</h4>
-                <span class="text-muted">Something else</span>
-            </div>
+        <div class="col-md-10 main">
+            <h1 class="page-header">Dashboard</h1>
         </div>
     </div>
 </div>
