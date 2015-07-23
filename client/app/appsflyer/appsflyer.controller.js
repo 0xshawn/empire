@@ -10,7 +10,6 @@ angular.module('nodeApp')
           $scope.toggleData[appsflyers[i]['_id']] = true;
         }
       });
-      console.log($scope.appsflyer);
     };
 
     $scope.toggle = function(event) {

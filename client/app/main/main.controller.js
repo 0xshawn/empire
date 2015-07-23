@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('nodeApp')
-  .controller('MainCtrl', function($scope, $http) {
+  .controller('MainCtrl', function ($scope, $http, $location) {
+    $location.path('/appsflyer');
     $scope.oneAtATime = true;
 
     $scope.groups = [{
@@ -14,7 +15,7 @@ angular.module('nodeApp')
 
     $scope.items = ['Item 1', 'Item 2', 'Item 3'];
 
-    $scope.addItem = function() {
+    $scope.addItem = function () {
       var newItemNo = $scope.items.length + 1;
       $scope.items.push('Item ' + newItemNo);
     };
