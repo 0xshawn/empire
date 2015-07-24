@@ -1,6 +1,6 @@
 {
   "name": "node",
-  "version": "0.0.0",
+  "version": "0.0.1.4",
   "main": "server/app.js",
   "dependencies": {
     "express": "~4.0.0",
