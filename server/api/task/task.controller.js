@@ -63,6 +63,17 @@ exports.destroy = function(req, res) {
   });
 };
 
+// Get new Task if have
+exports.getUpdates = function(req, res) {
+    Task.find(function (err, tasks) {
+        if(err) { return handleError(res, err); }
+        setTimeout(function(){
+            return res.json(200, tasks);
+        }, 1*1000);
+        //return res.json(200, tasks);
+    });
+};
+
 function handleError(res, err) {
   return res.send(500, err);
 }

@@ -18,23 +18,12 @@
       </thead>
       <tbody>
         <tr ng-repeat="tag in tags">
+          <th>{{tag.name}}</th>
           <th>{{tag.description}}</th>
-          <th>{{tag.description}}</th>
-          <th>{{tag.servers}}</th>
+          <th>{{get_hostname(tag)}}</th>
           <th><button class="btn btn-danger btn-xs" ng-click='deleteTag(tag)'><span class="glyphicon glyphicon-remove"></span></button></th>
         </tr>
       </tbody>
     </table>
-  </div>
-
-  <div
-    isteven-multi-select
-    input-model="modernBrowsers"
-    output-model="outputBrowsers"
-    button-label="name"
-    item-label="name maker"
-    tick-property="ticked"
-    max-labels="1"
-    >
   </div>
 </div>

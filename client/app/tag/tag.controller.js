@@ -2,7 +2,23 @@
 
 angular.module('nodeApp')
   .controller('TagCtrl', function($state, $scope, $http, Tag, $modal, $log, Server) {
+    var map = {};
+    $scope.servers = Server.query(function(servers) {
+      for(var i = 0; i < servers.length; i++) {
+        map[servers[i]._id] = servers[i].hostname;
+      }
+    });
+
     $scope.tags = Tag.query();
+
+    $scope.get_hostname = function(tag) {
+      var length = tag.servers.length;
+      var hostnames = [];
+      for(var i = 0; i < length; i++) {
+        hostnames.push(map[tag.servers[i]]);
+      }
+      return hostnames;
+    };
 
     $scope.deleteTag = function(tag) {
       tag.$delete();
@@ -10,8 +26,10 @@ angular.module('nodeApp')
     };
 
     $scope.refresh = function() {
-      $scope.tasks = Tag.query();
+      $scope.tags = Tag.query();
     };
+
+
 
     $scope.refresh();
 
@@ -36,24 +54,21 @@ angular.module('nodeApp')
       });
 
       modalInstance.result.then(function (tag) {
-        $
         console.log('create new tag: ' + tag.name);
+        $scope.refresh();
       }, function () {
         console.log('canceled');
       });
     };
-
-    $scope.xx = 'this is double x';
   })
   .controller('NewTagCtrl', function($scope, Tag, $modalInstance, servers) {
-    $scope.x = 'this is x';
     $scope.servers = servers;
     $scope.selected_servers = [];
     $scope.submit = function (tag) {
+      $scope.tag['servers'] = [];
       $scope.selected_servers.forEach(function(s) {
         $scope.tag.servers.push(s._id);
       });
-      console.log($scope.tag);
       var newTag = new Tag($scope.tag);
       newTag.$save();
       $modalInstance.close(newTag);
@@ -61,12 +76,5 @@ angular.module('nodeApp')
 
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
-    };
-
-    $scope.show = function(tag) {
-      console.log(tag);
-      console.log($scope.x);
-      console.log($scope.xx);
-      console.log($scope.selected_servers);
     };
   });

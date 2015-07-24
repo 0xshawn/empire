@@ -7,7 +7,9 @@ angular.module('nodeApp', [
   'ui.router',
   'ui.bootstrap',
   'ngTagsInput',
-  'isteven-multi-select'
+  'isteven-multi-select',
+  'ngAnimate',
+  'angular-ladda'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

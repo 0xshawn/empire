@@ -3,22 +3,18 @@
 angular.module('nodeApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
-      /*
       'title': 'Home',
-      'link': '/'
-    }, {
+      'link': '/appsflyer'
+    }/*, {
       'title': 'Servers',
       'link': '/server'
     }, {
       'title': 'Tasks',
       'link': '/task/list'
     }, {
-      'title': 'Tags',
-      'link': '/tag'
-    }, {*/
       'title': 'AppsFlyer',
       'link': '/appsflyer'
-    }];
+    }*/];
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
