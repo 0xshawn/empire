@@ -27,6 +27,7 @@
             <tr>
                 <th>App id</th>
                 <th>Event name</th>
+                <th>Device type</th>
                 <th>Date</th>
             </tr>
         </thead>
@@ -34,6 +35,7 @@
             <tr ng-repeat-start="e in appsflyers">
                 <th><a ng-click="toggle(e)">{{appId(e)}}</a></th>
                 <th>{{eventName(e)}}</th>
+                <th>{{deviceType(e)}}</th>
                 <th>{{e.createdAt | date:'yyyy-MM-dd HH:mm:ss'}} UTC</th>
             </tr>
             <tr ng-repeat-end collapse="toggleCollapse(e)">

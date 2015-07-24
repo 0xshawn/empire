@@ -93,6 +93,11 @@ angular.module('nodeApp')
       }
     };
 
+    $scope.deviceType = function(event) {
+      var json = angular.fromJson(event.content);
+      return json.device_type;
+    };
+
     var removeAll = function () {
       Appsflyer.removeAll(function () {
         $scope.refresh();
