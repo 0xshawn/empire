@@ -6,4 +6,5 @@ version 0.0.1.4
 - AppsFlyer Push API callback page
 
 # TODO
+- appsflyer test now
 - bootstrap Collapse smooth, may be related to angular-animate
