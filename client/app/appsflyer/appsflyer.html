@@ -8,7 +8,7 @@
         </h3>
         <form class="form-inline has-success">
             <div class="form-group">
-                <label class="control-label" for="inputSuccess4">I need</label>
+                <label class="control-label" for="inputSuccess4" style="margin-right:4px;">I need </label>
                 <select class="form-control" ng-model="$times" ng-init="$times = '60'">
                     <option>5</option>
                     <option>30</option>
@@ -16,7 +16,7 @@
                     <option>100</option>
                 </select>
             </div>
-            <label class="control-label">requests data, and </label>
+            <label class="control-label" style="margin-left:4px;">requests data, and </label>
             <button ng-class="actionButtonClass" ng-click="actionButtonClick($times)" ladda="actionButtonLoading" data-style="expand-right">{{actionButtonLabel}}</button>
             <butotn ng-show="actionStatus == 2" class="btn btn-danger" ng-click="actionButtonClick(times)">Stop</butotn>
     </div>
