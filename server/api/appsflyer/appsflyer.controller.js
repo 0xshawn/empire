@@ -121,7 +121,7 @@ exports.getToggleAccept = function (req, res) {
 };
 
 exports.removeAll = function (req, res) {
-  Appsflyer.remove({});
+  Appsflyer.remove({}, function() {});
   return res.send(200);
 };
 
