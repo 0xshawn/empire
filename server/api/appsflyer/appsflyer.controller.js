@@ -8,7 +8,7 @@
  */
 
 'use strict';
-var _toggleAccept = 0;
+var _toggleAccept = -2;
 
 var _ = require('lodash');
 var Appsflyer = require('./appsflyer.model');
@@ -52,7 +52,7 @@ exports.create = function (req, res) {
   };
 
   //save if _toggleAccept > 0
-  if (_toggleAccept > 0) {
+  if (_toggleAccept >= 0) {
     _toggleAccept -= 1;
     Appsflyer.create(json, function (err, appsflyer) {
       if (err) {
@@ -109,6 +109,7 @@ exports.destroy = function (req, res) {
 exports.resetToggleAccept = function (req, res) {
   var max = req.body.toggleAccept || 50;
   _toggleAccept = max;
+  console.log(_toggleAccept);
   return res.send(200);
 };
 
@@ -117,6 +118,11 @@ exports.getToggleAccept = function (req, res) {
     "toggleAccept": _toggleAccept
   };
   return res.json(body);
+};
+
+exports.removeAll = function (req, res) {
+  Appsflyer.remove({});
+  return res.send(200);
 };
 
 function handleError(res, err) {

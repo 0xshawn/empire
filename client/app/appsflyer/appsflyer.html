@@ -1,35 +1,50 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-
 <div class="container">
-  <div class="appsflyer">
-    <h3>Appsflyer Push API</h3>
-    <button class="btn btn-button btn-primary" ng-click="refresh()">Refresh</button>
-    <button class="btn btn-button btn-danger" ng-click="deleteAll()">Drop all</button>
+    <div class="appsflyer">
+        <h3>
+          Appsflyer Push API
+          <button class="btn btn-button btn-primary" ladda="refreshLoading" data-style="zoom-out" ng-click="refresh()">Refresh
+          </button>
+        </h3>
+        <form class="form-inline has-success">
+            <div class="form-group">
+                <label class="control-label" for="inputSuccess4">I need</label>
+                <select class="form-control" ng-model="$times" ng-init="$times = '60'">
+                    <option>5</option>
+                    <option>30</option>
+                    <option>60</option>
+                    <option>100</option>
+                </select>
+            </div>
+            <label class="control-label">requests data, and </label>
+            <button ng-class="actionButtonClass" ng-click="actionButtonClick($times)" ladda="actionButtonLoading" data-style="expand-right">{{actionButtonLabel}}</button>
+            <butotn ng-show="actionStatus == 2" class="btn btn-danger" ng-click="actionButtonClick(times)">Stop</butotn>
+    </div>
+    </form>
+    <hr>
     <table class="table">
-      <thead>
-        <tr>
-          <th>App id</th>
-          <th>Event name</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat-start="e in appsflyers">
-          <th><a ng-click="toggle(e)">{{appId(e)}}</a></th>
-          <th>{{eventName(e)}}</th>
-          <th>{{e.createdAt | date:'yyyy-MM-dd HH:mm:ss'}} UTC</th>
-        </tr>
-        <tr ng-repeat-end collapse="toggleCollapse(e)">
-          <td colspan="8">
-            <label>Details</label>
-            <pre>{{jsonFormat(e) | json}}</pre>
-          </td>
-        </tr>
-      </tbody>
+        <thead>
+            <tr>
+                <th>App id</th>
+                <th>Event name</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat-start="e in appsflyers">
+                <th><a ng-click="toggle(e)">{{appId(e)}}</a></th>
+                <th>{{eventName(e)}}</th>
+                <th>{{e.createdAt | date:'yyyy-MM-dd HH:mm:ss'}} UTC</th>
+            </tr>
+            <tr ng-repeat-end collapse="toggleCollapse(e)">
+                <td colspan="8">
+                    <label>Details</label>
+                    <pre>{{jsonFormat(e) | json}}</pre>
+                </td>
+            </tr>
+        </tbody>
     </table>
-  </div>
-
-  <div class="alert alert-info" role="alert">
-    <p>* 建议：每次测试前请点击 <a href="#" class="alert-link">Drop all</a>。</p>
-  </div>
+    <div class="alert alert-info" role="alert">
+        <p>* Tips：Drop data before every test.</p>
+    </div>
 </div>

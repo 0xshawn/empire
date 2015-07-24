@@ -12,6 +12,7 @@ router.post('/', controller.create);
 router.put('/reset', controller.resetToggleAccept);
 router.put('/:id', controller.update);
 router.patch('/:id', controller.update);
+router.delete('/removeall', controller.removeAll);
 router.delete('/:id', controller.destroy);
 
 module.exports = router;

@@ -16,10 +16,19 @@
     "lodash": "~2.4.1",
     "angular-ui-router": "~0.2.10",
     "ng-tags-input": "~2.3.0",
-    "isteven-angular-multiselect": "~4.0.0"
+    "isteven-angular-multiselect": "~4.0.0",
+    "angular-ladda": ">=0.3.1"
   },
   "devDependencies": {
     "angular-mocks": ">=1.4.2",
     "angular-scenario": ">=1.4.2"
+  },
+  "overrides": {
+    "ladda": {
+      "main": [
+        "dist/ladda-themeless.min.css",
+        "dist/ladda.min.js"
+      ]
+    }
   }
 }

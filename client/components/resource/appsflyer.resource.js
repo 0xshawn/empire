@@ -7,7 +7,7 @@ angular.module('nodeApp')
       id: '@_id'
     }, {
       'reset': {
-        method: 'GET',
+        method: 'PUT',
         params: {
           id: 'reset'
         }
@@ -16,6 +16,12 @@ angular.module('nodeApp')
         method: 'GET',
         params: {
           id: 'read'
+        }
+      },
+      'removeAll': {
+        method: 'DELETE',
+        params: {
+          id: 'removeall'
         }
       }
     });
